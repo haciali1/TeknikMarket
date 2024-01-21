@@ -1,20 +1,17 @@
-﻿using System;
+﻿using Infrastructure.Domain;
+using System;
 using System.Collections.Generic;
 
 namespace TeknikMarket.Model.Entity
 {
-    public partial class Basket
-    {
-        public int Id { get; set; }
+    public partial class Basket : BaseEntity, IBaseDomain
+	{
+    
+        
         public int? ProductId { get; set; }
         public int? Piece { get; set; }
         public decimal? TotalPrice { get; set; }
-        public int? Creater { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public int? LastProcessUser { get; set; }
-        public DateTime? UpdateDate { get; set; }
-        public bool? IsDeleted { get; set; }
-
+        
         public virtual Product? Product { get; set; }
     }
 }

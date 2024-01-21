@@ -1,21 +1,19 @@
-﻿using System;
+﻿using Infrastructure.Domain;
+using System;
 using System.Collections.Generic;
 
 namespace TeknikMarket.Model.Entity
 {
-    public partial class Company
-    {
-        public int Id { get; set; }
+    public partial class Company : BaseEntity, IBaseDomain
+	{
+    
+ 
         public int? UserId { get; set; }
         public string? Name { get; set; }
         public string? TaxNumber { get; set; }
         public string? TaxOffice { get; set; }
         public string? Tcno { get; set; }
-        public int? Creater { get; set; }
-        public DateTime? CreatedDate { get; set; }
-        public int? LastProcessUser { get; set; }
-        public DateTime? UpdateDate { get; set; }
-        public bool? IsDeleted { get; set; }
+
 
         public virtual User? User { get; set; }
     }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using TeknikMarket.Model.Entity;
 
-namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
+namespace TeknikMarket.DataAccess.Concrete.EntityFramework.Context
 {
     public partial class TeknikMarketContext : DbContext
     {
@@ -117,7 +117,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+               
             });
 
             modelBuilder.Entity<Basket>(entity =>
@@ -128,7 +128,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.TotalPrice).HasColumnType("decimal(18, 0)");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+                
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.Baskets)
@@ -142,13 +142,13 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.CompanyImage).HasMaxLength(250);
 
-                entity.Property(e => e.CreaterDate).HasColumnType("datetime");
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Explanation).HasMaxLength(50);
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+                
             });
 
             modelBuilder.Entity<Category>(entity =>
@@ -196,7 +196,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
                     .HasMaxLength(11)
                     .HasColumnName("TCNo");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+  
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Companies)
@@ -208,7 +208,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
             {
                 entity.ToTable("Gender");
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
 
@@ -221,7 +221,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+          
 
                 entity.HasOne(d => d.Bank)
                     .WithMany(p => p.InstallmentOptions)
@@ -246,7 +246,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.OfferPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+               
             });
 
             modelBuilder.Entity<OfferType>(entity =>
@@ -259,7 +259,6 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.Type).HasMaxLength(50);
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
 
                 entity.HasOne(d => d.IdNavigation)
                     .WithMany()
@@ -277,7 +276,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.TotalOrderPrice).HasColumnType("decimal(18, 2)");
 
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+       
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Orders)
@@ -293,7 +292,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
+ 
 
                 entity.HasOne(d => d.Order)
                     .WithMany()
@@ -312,7 +311,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+
 
                 entity.HasOne(d => d.Offer)
                     .WithMany(p => p.OrderOffers)
@@ -329,7 +328,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
             {
                 entity.ToTable("Product");
 
-                entity.Property(e => e.CreaterDate).HasColumnType("datetime");
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.Expllanation).HasMaxLength(50);
 
@@ -353,7 +352,6 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.ImagePath).HasMaxLength(500);
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Product)
                     .WithMany(p => p.ProductImages)
@@ -385,7 +383,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
             {
                 entity.ToTable("Role");
 
-                entity.Property(e => e.CreateDate).HasColumnType("datetime");
+                entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
                 entity.Property(e => e.RoleName).HasMaxLength(50);
 
@@ -400,7 +398,6 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.UniteName).HasMaxLength(50);
 
-                entity.Property(e => e.UpdatedDate).HasColumnType("datetime");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -427,7 +424,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.UniqueId).HasDefaultValueSql("(newid())");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+              
 
                 entity.HasOne(d => d.City)
                     .WithMany(p => p.Users)
@@ -446,7 +443,7 @@ namespace TeknikMarket.DataAccess.Concrate.EntityFramework.Context
 
                 entity.Property(e => e.CreatedDate).HasColumnType("datetime");
 
-                entity.Property(e => e.UpdateDate).HasColumnType("datetime");
+              
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.UserRoles)
